@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# React - brepi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Material Review
 
-## Available Scripts
+- JavaScript recap
+  - Arrow function
+  - `let`
+  - `const`
+  - array destructuring
+  - object destructuring
+- What is React?
+- React component
+  - Properties
+    - `onClick`
+    - `className`
+  - Render method
+  - Functional vs. Class component
+- React element
+  - JSX
+    <!--
+      JavaScript XML
+    -->
+- Passing data through props
+- State
+  - What is the type of it?
+  - Where and how to initialize it?
+  - How to access it?
+  - How to update it?
+- Hooks
+  - useState
+  - useEffect
+- React Devtools
+- Lifting state up
+  - on\[Event], handle\[Event] naming convention
+- Controlled component
+- Immutability
+  - Why is immutability important?
+  - What are the operators that modify a variable?
+    <!--
+      +=, -=, ++, --
+    -->
+  - How to update a list without mutation?
+  - How to update an object without mutation?
+  - What is a pure function?
+- `key` attribute
 
-In the project directory, you can run:
+brepi is a
+[single-page application](https://en.wikipedia.org/wiki/Single-page_application)
+for discovering Brewdog's beers.
 
-### `npm start`
+## The purpose of the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The purpose of the project is to get familiar with React itself. By the end of
+this project you will have a basic understanding of:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- how to work with React
+- how to work with components
+- how to pass properties around
+- how to handle the state of a component
+- how to write JSX
+- and many more
 
-### `npm test`
+But you are not going to get a deep understanding of React and that is not the
+purpose of this project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What are you going to use?
 
-### `npm run build`
+- [create-react-app](https://github.com/facebook/create-react-app)
+  - We don't want to waste time on setting up the React environment
+- [Ant Design](https://ant.design/)
+  - For design elements
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+  - For interacting with Punk API
+- [Punk API](https://punkapi.com/)
+  - For the data about the beers
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## What are you NOT going to use?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Redux](https://redux.js.org/)
+- [React Router](https://reacttraining.com/react-router/)
+- and many more
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Specification
 
-### `npm run eject`
+### Main page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The main page must display:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- the header
+- at least 6 beer tiles
+- the paginator
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Header
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The header must display:
 
-## Learn More
+- a heading
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Beer tile
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The beer tile must display the beer's:
 
-### Code Splitting
+- image
+- name
+- description on click
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```gherkin
+Given a beer tile without description
+When I click on the beer tile
+Then I should see the description
 
-### Analyzing the Bundle Size
+Given a beer tile with description
+When I click on the beer tile
+Then I should not see the description
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Given a beer tile ("BT1") with description
+Given an other beer tile ("BT2") without a description
+When I click on BT2
+Then I should see the description of BT2
+But I should not see the description of BT1
+```
 
-### Making a Progressive Web App
+### Paginator
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The paginator should enable the user to list the next or previous page of beers.
 
-### Advanced Configuration
+### Mockup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You can use the following mockup to do the application, but feel free to make it
+unique!
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![the mockup of brepi](brepi-mockup.jpg)
